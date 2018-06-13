@@ -1,8 +1,10 @@
-# Artificial Intelligence Engineer Nanodegree
-## Probabilistic Models
-## Project: Sign Language Recognition System
+# Sign Language Recognition System
 
-### Install
+In this project, I implemented a word recognizer for American Sign Language video sequences, demonstrating the power of probabalistic models. In particular, I employs hidden Markov models (HMM's) to analyze a series of measurements taken from videos of American Sign Language (ASL) collected for research (see the RWTH-BOSTON-104 Database). In this video, the right-hand x and y locations are plotted as the speaker signs the sentence. 
+![Test image](https://github.com/KHKANG36/Lane-Lines-Finding-Project/blob/master/sample_images/s_channel_result.png)
+I orgaznied a variety of feature sets for training and testing, as well as implemented three different model selection criterion to determine the optimal number of hidden states for each word model. Finally, I implemented the recognizer and compare the effects the different combinations of feature sets and model selection criteria.
+
+## Requirements
 
 This project requires **Python 3** and the following Python libraries installed:
 
@@ -21,41 +23,19 @@ Notes:
 pip install git+https://github.com/hmmlearn/hmmlearn.git
 ```
 
-### Code
+## Code
 
-A template notebook is provided as `asl_recognizer.ipynb`. The notebook is a combination tutorial and submission document.  Some of the codebase and some of your implementation will be external to the notebook. For submission, complete the **Submission** sections of each part.  This will include running your implementations in code notebook cells, answering analysis questions, and passing provided unit tests provided in the codebase and called out in the notebook. 
+All running code for this project is implemented in 'asl_recognizer.ipynb' and all required data are uploaded in this project repo. Three different model is implemented in 'my_model_selectors.py', and model recognizer for training and testing is written at 'my_recognizer.py'
 
-### Run
+## Run
 
-In a terminal or command window, navigate to the top-level project directory `AIND_recognizer/` (that contains this README) and run one of the following command:
+In a terminal or command window, run the following command:
 
 `jupyter notebook asl_recognizer.ipynb`
 
-This will open the Jupyter Notebook software and notebook in your browser which is where you will directly edit and run your code. Follow the instructions in the notebook for completing the project.
+This will open the Jupyter Notebook software and notebook in your browser which is where you will directly edit and run your code. 
 
+## Project Description 
 
-### Additional Information
-##### Provided Raw Data
+1) Data 
 
-The data in the `asl_recognizer/data/` directory was derived from 
-the [RWTH-BOSTON-104 Database](http://www-i6.informatik.rwth-aachen.de/~dreuw/database-rwth-boston-104.php). 
-The handpositions (`hand_condensed.csv`) are pulled directly from 
-the database [boston104.handpositions.rybach-forster-dreuw-2009-09-25.full.xml](boston104.handpositions.rybach-forster-dreuw-2009-09-25.full.xml). The three markers are:
-
-*   0  speaker's left hand
-*   1  speaker's right hand
-*   2  speaker's nose
-*   X and Y values of the video frame increase left to right and top to bottom.
-
-Take a look at the sample [ASL recognizer video](http://www-i6.informatik.rwth-aachen.de/~dreuw/download/021.avi)
-to see how the hand locations are tracked.
-
-The videos are sentences with translations provided in the database.  
-For purposes of this project, the sentences have been pre-segmented into words 
-based on slow motion examination of the files.  
-These segments are provided in the `train_words.csv` and `test_words.csv` files
-in the form of start and end frames (inclusive).
-
-The videos in the corpus include recordings from three different ASL speakers.
-The mappings for the three speakers to video are included in the `speaker.csv` 
-file.
