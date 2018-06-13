@@ -39,10 +39,10 @@ This will open the Jupyter Notebook software and notebook in your browser which 
 
 ## Project Description 
 
-####1) Feature set organization (Data organization)
+#### 1) Feature set organization (Data organization)
  - I implement five feature sets for ASL training and testing. (1) Ground : used the absolute difference between the left/right-hand x/y value and the nose x/y value, which serves as the "ground" value. (2) normalized Cartesian coordinates : use mean and standard deviation statistics and the standard score equation to account for speakers with different heights and arm length (3) polar coordinates : calculated polar coordinates with Cartesian to polar equations (4) delta difference : used the difference in values between one frame and the next frames as features (5) normalized polar coordinates : like feature set (2), used mean and standard deviation statistics in polar coordinates to account for speakers with different heights and arm length. 
  
-####2) Model Selection 
+#### 2) Model Selection 
 
 The purpose of Model Selection is to tune the number of states for each word HMM prior to testing on unseen data. We should set the ideal number of HMMs states for best performance. For example, if we can express the ASL for "Chocolate" word with 4 states at best, each 4 states should be clearly separated with mean and variance of each state. Below is the visualization of mean and variance of 4 states for "Chocolate" word. (This is not the optimal but just one of the example.)
 
@@ -50,13 +50,13 @@ The purpose of Model Selection is to tune the number of states for each word HMM
 
 In general, since we don't know exactly how many states would be ideal in HMMs, I explored three methods in this project to decide the optimal number of states for each word. Three models are as below:
 
-1) Log likelihood using cross-validation folds (CV)
-2) Bayesian Information Criterion (BIC)
-3) Discriminative Information Criterion (DIC) 
+(1) Log likelihood using cross-validation folds (CV)
+(2) Bayesian Information Criterion (BIC)
+(3) Discriminative Information Criterion (DIC) 
 
-1) Cross Validation: While DIC, BIC attempts to penalizing the model complexity, cross validation should be exactly the selector socre on observed data.Therfore, if test data sets are pretty much similar to train data sets, it will provide the most accurate result. However, since it requires running through the data multiple times, over each folds, the expense will reult in a very slow runs. Therefore, it is not suitable with large datasets. CV technique handle the overfitting problem by training on as many folds as are passed in as its hyperparameter. 2) BIC: This model penalizes model complexity. The main advantage of BIC is that it provides simpler models by penalizing models that have high complexity with the penalize parament 'p'. 3) DIC: DIC is calculated by subtracting Loglikelihood of given word and average Loglikelihood for other words data. DIC is rather more complex model than BIC in terms of penalizing, because it calculate the Loglikelidhood of all the words and compare them with given word. 
+(1) Cross Validation: While DIC, BIC attempts to penalizing the model complexity, cross validation should be exactly the selector socre on observed data.Therfore, if test data sets are pretty much similar to train data sets, it will provide the most accurate result. However, since it requires running through the data multiple times, over each folds, the expense will reult in a very slow runs. Therefore, it is not suitable with large datasets. CV technique handle the overfitting problem by training on as many folds as are passed in as its hyperparameter. (2) BIC: This model penalizes model complexity. The main advantage of BIC is that it provides simpler models by penalizing models that have high complexity with the penalize parament 'p'. (3) DIC: DIC is calculated by subtracting Loglikelihood of given word and average Loglikelihood for other words data. DIC is rather more complex model than BIC in terms of penalizing, because it calculate the Loglikelidhood of all the words and compare them with given word. 
 
-####3) Recognizer 
+#### 3) Recognizer 
 Using the five feature sets created and the three model selectors (15 possible combinations) with HMMs library, I trained all words in datasets and tested the words in test datasets. For the accuracy metrics, I used WER (Word Error Rate). The result is as below:
 
 1. Total Result (WER):
