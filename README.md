@@ -39,5 +39,3 @@ This will open the Jupyter Notebook software and notebook in your browser which 
 
 ## Project Description 
 
-1) Data 
-
