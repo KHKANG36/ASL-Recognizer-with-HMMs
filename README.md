@@ -1,7 +1,7 @@
 # Sign Language Recognition System
 
 In this project, I implemented a word recognizer for American Sign Language video sequences, demonstrating the power of probabalistic models. In particular, I employs hidden Markov models (HMM's) to analyze a series of measurements taken from videos of American Sign Language (ASL) collected for research (see the RWTH-BOSTON-104 Database). In this video, the right-hand x and y locations are plotted as the speaker signs the sentence. 
-![Test image](https://github.com/KHKANG36/Lane-Lines-Finding-Project/blob/master/sample_images/s_channel_result.png)
+![Test image](https://github.com/KHKANG36/ASL-Recognizer-with-HMMs/blob/master/data/ASL_DB.png)
 I orgaznied a variety of feature sets for training and testing, as well as implemented three different model selection criterion to determine the optimal number of hidden states for each word model. Finally, I implemented the recognizer and compare the effects the different combinations of feature sets and model selection criteria.
 
 ## Requirements
